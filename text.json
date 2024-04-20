@@ -1,0 +1,64 @@
+{
+  "en" : {
+    "lang" : "Perferred language?\n'en' = English\n'es' = Spanish\n'ch' = Mandarin Chinese\n'jp' = Japanese",
+    "not-lang": "Please select only:\n'en', 'es', 'ch', or 'jp'",
+
+    "welcome" : "Welcome to the Calculator",
+
+    "first-num" : "What's your first number?",
+    "second-num" : "What's your second number?",
+    "operator" : "What operation would you like to perform\n1) Add 2) Subtract 3) Multiply 4) Divide",
+
+    "not-num" : "This is not a number!",
+    "not-selection" : "You must choose 1, 2, 3, or 4",
+    "zero-division" : "You can't divide by 0",
+
+    "result" : "The result is:",
+    "try-again": "Type '1' to continue"
+  },
+
+  "es" : {
+    "welcome" : "Bienvenido a la calculadora",
+
+    "first-num" : "¿Cuál es tu primer número?",
+    "second-num" : "¿Cuál es tu segundo número?",
+    "operator" : "¿Qué operación le gustaría realizar?\n1) Sumar 2) Restar 3) Multiplicar 4) Dividir",
+
+    "not-num" : "¡Esto no es un número!",
+    "not-selection" : "Debes elegir 1, 2, 3, o 4",
+    "zero-division" : "No puedes dividir por 0",
+
+    "result" : "El resultado es:",
+    "try-again" : "Escribe '1' para continuar"
+  },
+
+  "ch" : {
+    "welcome" : "欢迎使用计算器",
+
+    "first-num" : "你的第一个号码是多少?",
+    "second-num" : "你的第二个号码是多少?",
+    "operator" : "您要执行什么运算\n1) 加 2) 减 3) 乘 4) 除",
+
+    "not-num" : "这不是一个数字！",
+    "not-selection" : "您必须选择 1、2、3 或 4",
+    "zero-division" : "你不能除以 0",
+
+    "result" : "结果是:",
+    "try-again" : "输入“1”继续"
+  },
+
+  "jp" : {
+    "welcome" : "電卓へようこそ",
+
+    "first-num" : "あなたの最初の番号は何ですか?",
+    "second-num" : "あなたの2番目の番号は何ですか?",
+    "operator" : "どのような演算を実行したいですか 1) 加算 2) 減算 3) 乗算 4) 除算",
+
+    "not-num" : "これは数字ではありません!",
+    "not-selection" : "1、2、3、または 4 を選択する必要があります",
+    "zero-division" : "0で割ることはできません",
+
+    "result" : "消す:",
+    "try-again" : "続行するには「1」を入力してください"
+  }
+}

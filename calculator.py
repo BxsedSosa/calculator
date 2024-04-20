@@ -5,11 +5,12 @@
 # Print the result to the terminal
 import json
 
-with open("messages.json", "r") as file:
+with open("text.json", "r") as file:
     MESSAGE = json.load(file)
 
 
-def prompt(message):
+def prompt(key):
+    message = messages(key)
     print(f"==> {message}")
 
 
@@ -22,44 +23,60 @@ def is_valid_number(num):
     return False
 
 
-while True:
-    prompt(MESSAGE["welcome"])
+def messages(key):
+    return MESSAGE[selected_lang][key]
 
-    prompt(MESSAGE["questions"]["first_num"])
+
+while True:
+    selected_lang = "en"
+
+    prompt("lang")
+    selected_lang = input()
+
+    while selected_lang not in ["en", "es", "ch", "jp"]:
+        selected_lang = "en"
+        prompt("not-lang")
+        selected_lang = input()
+
+    prompt("welcome")
+    prompt("first-num")
     number1 = input()
 
     while is_valid_number(number1):
-        prompt(MESSAGE["edge_case"]["not_num"])
+        prompt("not-num")
         number1 = input()
 
-    prompt(MESSAGE["questions"]["second_num"])
+    prompt("second-num")
     number2 = input()
 
     while is_valid_number(number2):
-        prompt(MESSAGE["edge_case"]["not_num"])
+        prompt("not-num")
         number2 = input()
 
-    prompt(MESSAGE["questions"]["operator"])
+    prompt("operator")
 
     operation = input()
 
     while operation not in ["1", "2", "3", "4"]:
-        prompt(MESSAGE["edge_case"]["not_op"])
+        prompt("not-selection")
         operation = input()
 
     match operation:
         case "1":
-            output = int(number1) + int(number2)
+            output = float(number1) + float(number2)
         case "2":
-            output = int(number1) - int(number2)
+            output = float(number1) - float(number2)
         case "3":
-            output = int(number1) * int(number2)
+            output = float(number1) * float(number2)
         case "4":
-            output = int(number1) // int(number2)
+            if float(number2) == 0:
+                prompt("zero-division")
+                exit(1)
+            output = float(number1) // float(number2)
 
-    prompt(MESSAGE["result"])
+    print("==>", MESSAGE[selected_lang]["result"], output)
 
-    prompt(MESSAGE["try_again"])
+    prompt("try-again")
     resume = input()
     if resume != "1":
         break

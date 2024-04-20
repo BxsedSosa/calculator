@@ -1,6 +1,8 @@
 {
+  "arrow" : "==>",
+
   "en" : {
-    "lang" : "Perferred language?\n'en' = English\n'es' = Spanish\n'ch' = Mandarin Chinese\n'jp' = Japanese",
+    "select-lang" : "Perferred language?\n'en' = English\n'es' = Spanish\n'ch' = Mandarin Chinese\n'jp' = Japanese",
     "not-lang": "Please select only:\n'en', 'es', 'ch', or 'jp'",
 
     "welcome" : "Welcome to the Calculator",

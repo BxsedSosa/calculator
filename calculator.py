@@ -3,6 +3,10 @@
 # Ask the user for an operation to perform
 # Perform the operation on the two numbers
 # Print the result to the terminal
+import json
+
+with open("messages.json", "r") as file:
+    MESSAGE = json.load(file)
 
 
 def prompt(message):
@@ -18,41 +22,44 @@ def is_valid_number(num):
     return False
 
 
-prompt("Welcome to Calculator!")
+while True:
+    prompt(MESSAGE["welcome"])
 
-prompt("What's the first number?")
-number1 = input()
-
-while is_valid_number(number1):
-    prompt("This is not a number!")
+    prompt(MESSAGE["questions"]["first_num"])
     number1 = input()
 
-prompt("What's the second number?")
-number2 = input()
+    while is_valid_number(number1):
+        prompt(MESSAGE["edge_case"]["not_num"])
+        number1 = input()
 
-while is_valid_number(number2):
-    prompt("This is not a number!")
+    prompt(MESSAGE["questions"]["second_num"])
     number2 = input()
 
-prompt(
-    "What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide"
-)
-operation = input()
+    while is_valid_number(number2):
+        prompt(MESSAGE["edge_case"]["not_num"])
+        number2 = input()
 
-while operation not in ["1", "2", "3", "4"]:
-    prompt("You must choose 1, 2, 3, or 4")
+    prompt(MESSAGE["questions"]["operator"])
+
     operation = input()
 
-match operation:
-    case "1":
-        output = int(number1) + int(number2)
-    case "2":
-        output = int(number1) - int(number2)
-    case "3":
-        output = int(number1) * int(number2)
-    case "4":
-        output = int(number1) // int(number2)
-    case _:
-        prompt("You didn't provide a number 1-4")
+    while operation not in ["1", "2", "3", "4"]:
+        prompt(MESSAGE["edge_case"]["not_op"])
+        operation = input()
 
-prompt(f"The result is: {output}")
+    match operation:
+        case "1":
+            output = int(number1) + int(number2)
+        case "2":
+            output = int(number1) - int(number2)
+        case "3":
+            output = int(number1) * int(number2)
+        case "4":
+            output = int(number1) // int(number2)
+
+    prompt(MESSAGE["result"])
+
+    prompt(MESSAGE["try_again"])
+    resume = input()
+    if resume != "1":
+        break

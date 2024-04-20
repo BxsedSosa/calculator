@@ -59,17 +59,21 @@ def operation(text):
 def result(num1, num2, op):
     match op:
         case "1":
+            op = '+'
             result = float(num1) + float(num2)
         case "2":
+            op = '-'
             result = float(num1) - float(num2)
         case "3":
+            op = '*'
             result = float(num1) * float(num2)
         case "4":
+            op = '/'
             if float(num2) == 0:
                 print(prompt(MSG[language]["zero-division"]))
                 exit(1)
             result = float(num1) / float(num2)
-    print(prompt(f"The result is: {result}"))
+    print(prompt(f"The result is: {num1} {op} {num2} = {result}"))
 
 
 

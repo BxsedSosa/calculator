@@ -73,7 +73,7 @@ def result(num1, num2, op):
                 print(prompt(MSG[language]["zero-division"]))
                 exit(1)
             result = float(num1) / float(num2)
-    print(prompt(f"The result is: {num1} {op} {num2} = {result}"))
+    print(prompt(f"{MSG[language]['result']} {num1} {op} {num2} = {result}"))
 
 
 

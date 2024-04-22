@@ -1,21 +1,19 @@
-# Ask the user for the 1st number
-# Ask the user for the 2nd number
-# Ask the user for an operation to perform
-# Perform the operation on the two numbers
-# Print the result to the terminal
+'''Program imports'''
 import json
 
 USER_LANG = ["en", "es", "ch", "jp"]
 
-with open("text.json", "r") as file:
+with open("text.json", "r", encoding='UTF-8') as file:
     MSG = json.load(file)
 
 
 def prompt(key):
+    '''To add a arrow to each program output'''
     return f"{MSG['arrow']} {key}"
 
 
 def valid_language(text):
+    '''Checks if the user input is correct in language selection'''
     selected_lang = input(f"{prompt(text)}\n")
 
     while selected_lang not in USER_LANG:
@@ -25,10 +23,12 @@ def valid_language(text):
 
 
 def welcome_message(lang):
+    '''Welcome message'''
     print(prompt(MSG[lang]["welcome"]))
 
 
 def invalid_number(num):
+    '''Checks if the never given by user is valid'''
     try:
         int(num)
     except ValueError:
@@ -38,6 +38,7 @@ def invalid_number(num):
 
 
 def number_selection(text):
+    '''Gets user input of numbers'''
     user_num = input(prompt(f"{text}\n"))
 
     while invalid_number(user_num):
@@ -47,6 +48,7 @@ def number_selection(text):
 
 
 def operation(text):
+    '''Validates if user entered correct input for picking operator'''
     operator = input(prompt(f"{text}\n"))
     operator_selection = ["1", "2", "3", "4"]
 
@@ -57,28 +59,29 @@ def operation(text):
 
 
 def result(num1, num2, op):
+    '''Displays the math results'''
     match op:
         case "1":
             op = '+'
-            result = float(num1) + float(num2)
+            total = float(num1) + float(num2)
         case "2":
             op = '-'
-            result = float(num1) - float(num2)
+            total = float(num1) - float(num2)
         case "3":
             op = '*'
-            result = float(num1) * float(num2)
+            total = float(num1) * float(num2)
         case "4":
             op = '/'
             if float(num2) == 0:
                 print(prompt(MSG[language]["zero-division"]))
                 exit(1)
-            result = float(num1) / float(num2)
-    print(prompt(f"{MSG[language]['result']} {num1} {op} {num2} = {result}"))
+            total = float(num1) / float(num2)
+    print(prompt(f"{MSG[language]['result']} {num1} {op} {num2} = {total}"))
 
 
 
 def main():
-
+    '''Main function'''
     welcome_message(language)
     number1 = number_selection(MSG[language]["first-num"])
     number2 = number_selection(MSG[language]["second-num"])
